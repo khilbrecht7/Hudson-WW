@@ -1,4 +1,4 @@
-import type { Order, ShipDocument, FieldStatus } from "../types";
+import type { Order, FieldStatus } from "../types";
 import DocumentBadge from "./DocumentBadge";
 
 interface Props {

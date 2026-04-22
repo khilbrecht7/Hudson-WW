@@ -49,13 +49,11 @@ export default function App() {
 
   const handleDeleteDoc = useCallback(
     (docId: string) => {
-      setAllDocs((prev) => {
-        const updated = prev.filter((d) => d.id !== docId);
-        setResult(revalidate(updated));
-        return updated;
-      });
+      const updated = allDocs.filter((d) => d.id !== docId);
+      setAllDocs(updated);
+      setResult(revalidate(updated));
     },
-    []
+    [allDocs]
   );
 
   const handleReset = useCallback(() => {

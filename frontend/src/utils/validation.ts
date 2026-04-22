@@ -227,7 +227,7 @@ function validateWeightField(
 
   const avg = nonNull.reduce((s, [, v]) => s + v, 0) / nonNull.length;
   const errorIds = nonNull.filter(([, v]) => Math.abs(v - avg) / avg > WEIGHT_ERROR_PCT).map(([id]) => id);
-  const warnIds = nonNull.filter(([, v]) => Math.abs(v - avg) / avg > WEIGHT_WARNING_PCT && !errorIds.includes(id)).map(([id]) => id);
+  const warnIds = nonNull.filter(([docId, v]) => Math.abs(v - avg) / avg > WEIGHT_WARNING_PCT && !errorIds.includes(docId)).map(([docId]) => docId);
 
   const formatKg = (kg: number) => kg >= 1000 ? `${(kg / 1000).toFixed(3)} MT` : `${kg.toFixed(3)} kg`;
 
